@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Autores - Favoritos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-list>
+    <ion-item *ngFor="let autor of autores">
+      <ion-label>{{autor.nome}}</ion-label>
+      <ion-buttons>
+        <ion-button color="primary" [routerLink]="['edicao', autor.id]">
+          <ion-icon name="create" slot="icon-only"></ion-icon> 
+        </ion-button>
+        <ion-button color="primary" (click)="confirmarExclusao(autor)">
+          <ion-icon name="trash"  slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+ 
+  <!--BOTÃO CADASTRAR-->
+  <ion-fab vertical="bottom" horizontal="end">
+    <ion-fab-button [routerLink]="['cadastro']" color="success">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+    <!--BOTÃO HOME-->
+    <ion-fab vertical="bottom" horizontal="start">
+      <ion-fab-button size="small" [routerLink]="['/']">
+        <ion-icon name="home"></ion-icon>
+      </ion-fab-button>
+    </ion-fab> 
+
+   <!--IMAGEM-->
+   <ion-card>
+    <img
+      alt="Silhouette of mountains"
+      src="https://4.bp.blogspot.com/-w-9tSlfnxcM/TuvbEdFKIzI/AAAAAAAAA6o/SPF6UHDqINU/s1600/Magic-Book-Wallpaper-1600x1200.jpg"
+      style="width: 80; height: auto;"
+    />
+    <ion-card-header>
+      <ion-card-title>“Uma vida por uma vida, mas e se a vida oferecida como pagamento significasse perder mais três?”</ion-card-title>
+      <ion-card-subtitle>Corte de Espinhos e Rosas</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+</ion-content>

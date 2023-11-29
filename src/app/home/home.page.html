@@ -1,0 +1,107 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+    </ion-buttons>
+    <ion-title>Book Store App</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card color="light">
+    <ion-card-header>
+      <ion-card-title color="primary">
+        <h1>Bem-vinda(o) ao MeetBook!</h1>
+      </ion-card-title><br>
+      <ion-card-subtitle color="tertiary">
+
+        Uma plataforma pensada para auxiliar leitores ávidos a organizar sua rotina de leituras.
+        <br> <br>
+
+        Cadastre seus livros e autores favoritos. 
+        <br> <br>
+
+        Aproveite para pesquisar pelos seus livros preferidos. 
+        <br> <br>
+
+        E desfrute das melhores imagens dos seus personagens mais amados.
+      </ion-card-subtitle>
+    </ion-card-header><br>
+    
+  </ion-card>
+ 
+  <!--LIVROS-->
+  <ion-row>
+    <ion-col>
+          <ion-card>
+              <ion-card-header [routerLink]="['/livros']">
+                    <ion-card-title>
+                        <ion-icon name="logo-firebase" class="ion-float-left ion-margin-end"></ion-icon>
+                            Livros
+                        </ion-card-title>
+                </ion-card-header>
+          </ion-card>
+    </ion-col>
+
+ <!--USUARIOS-->    
+  <ion-col>
+      <ion-card>
+          <ion-card-header [routerLink]="['/usuarios']">
+              <ion-card-title>
+                <ion-icon name="person-add" class="ion-float-left ion-margin-end"></ion-icon>
+                          Perfil
+                </ion-card-title>
+          </ion-card-header>
+      </ion-card>
+  </ion-col>
+
+<!--AUTORES-->
+  <ion-col>
+      <ion-card>
+          <ion-card-header [routerLink]="['/autores']">
+              <ion-card-title>
+                <ion-icon name="person-add" class="ion-float-left ion-margin-end"></ion-icon>
+                    Autores
+                </ion-card-title>
+          </ion-card-header>
+      </ion-card>
+  </ion-col>
+<br><br><br>
+</ion-row>
+
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <img src="https://i.pinimg.com/564x/5a/6c/b7/5a6cb7993e457d8d7b04ec5deabe1ef8.jpg" alt="Imagem 1">
+    </ion-col>
+    <ion-col>
+      <img src="https://i.pinimg.com/564x/40/2d/ec/402dec048558615a2ea9db471f834918.jpg" alt="Imagem 2">
+    </ion-col>
+    <ion-col>
+      <img src="https://i.pinimg.com/564x/7d/e5/47/7de5474a12e0ff21ff0c0b31d9b35d15.jpg" alt="Imagem 3">
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <img src="https://i.pinimg.com/564x/cc/88/8d/cc888dfcf1bf6f290df315bf7e9f2eba.jpg" alt="Imagem 4">
+    </ion-col>
+    <ion-col>
+      <img src="https://i.pinimg.com/564x/45/c3/9a/45c39a695917c680e80d52ac6c50d791.jpg" alt="Imagem 5">
+    </ion-col>
+    <ion-col>
+      <img src="https://i.pinimg.com/564x/35/db/52/35db526a8dbd8ff33b18c386ae8e08f4.jpg" alt="Imagem 6">
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<ion-card color="light" class="ion-fixed ion-padding-bottom">
+  <ion-card-content>
+    <h3>MeetBook 2023 - Todos os direitos reservados</h3>
+    <h5>Projeto desenvolvido para a matéria de Programação para Plataformas Móveis - 6° fase - Esucri</h5>
+    <h6>Dupla: Eduarda Mello da Silva e Sabrina Comin Nart</h6>
+  </ion-card-content>
+</ion-card>
+
+</ion-content>

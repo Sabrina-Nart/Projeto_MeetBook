@@ -1,0 +1,219 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Cadastro de Livros</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="livrosForm">
+
+    <!--NOME LIVRO-->
+    <ion-item>
+      <ion-label position="floating">Nome: </ion-label>
+      <ion-input formControlName="nome" type="text"> </ion-input>
+      <ion-text
+        color="danger"
+        *ngIf="nome?.invalid && (nome?.dirty || nome?.touched)"
+      >
+        <small *ngIf="nome?.errors?.['required']">
+          O campo nome é obrigatório
+        </small>
+        <small *ngIf="nome?.errors?.['minlength']">
+          O campo nome deve conter no mínimo
+          {{ nome?.errors?.['minlength'].requiredLength }} caracteres
+        </small>
+        <small *ngIf="nome?.errors?.['maxlength']">
+          O campo nome deve conter no máximo
+          {{ nome?.errors?.['maxlength'].requiredLength }} caracteres
+        </small>
+      </ion-text>
+    </ion-item>
+
+     <!--AUTOR-->
+     <ion-item>
+      <ion-label position="floating">Autor: </ion-label>
+      <ion-input formControlName="autor" type="text"> </ion-input>
+      <ion-text
+        color="danger"
+        *ngIf="nome?.invalid && (nome?.dirty || nome?.touched)"
+      >
+        <small *ngIf="nome?.errors?.['required']">
+          O campo autor é obrigatório
+        </small>
+        <small *ngIf="nome?.errors?.['minlength']">
+          O campo nome deve conter no mínimo
+          {{ nome?.errors?.['minlength'].requiredLength }} caracteres
+        </small>
+        <small *ngIf="nome?.errors?.['maxlength']">
+          O campo nome deve conter no máximo
+          {{ nome?.errors?.['maxlength'].requiredLength }} caracteres
+        </small>
+      </ion-text>
+    </ion-item>
+
+    <!--DATA INCLUSÃO-->
+    <ion-item>
+      <ion-label position="floating">Data de Inclusão: </ion-label>
+      <br>
+
+      <ion-datetime-button datetime="datetime"></ion-datetime-button>
+      <ion-modal [keepContentsMounted]="true">
+        <ng-template>
+          <ion-datetime
+            id="datetime"
+            formControlName="dataNascimento"
+            display-format="DD de MMMM de YYYY"
+            min="1930-01-01"
+            presentation="date"
+            showDefaultButtons="true"
+            doneText="Selecionar"
+            cancelText="Cancelar"
+          ></ion-datetime>
+        </ng-template>
+      </ion-modal>
+    </ion-item>
+
+    <!--GENERO LITERARIO-->
+    <ion-list lines="none" class="ion-no-padding">
+      <ion-list-header>
+        <ion-label>Gênero Literário: </ion-label>
+      </ion-list-header>
+      <ion-radio-group name="genero" formControlName="genero">
+        <ion-item lines="none" class="ion-no-padding">
+          <ion-radio slot="start" value="C"></ion-radio>
+          <ion-label>Conto</ion-label>
+        </ion-item>
+        <ion-item lines="none" class="ion-no-padding">
+          <ion-radio slot="start" value="T"></ion-radio>
+          <ion-label>Terror</ion-label>
+        </ion-item>
+        <ion-item lines="none" class="ion-no-padding">
+          <ion-radio slot="start" value="F"></ion-radio>
+          <ion-label>Ficção</ion-label>
+        </ion-item>
+        <ion-item lines="none" class="ion-no-padding">
+          <ion-radio slot="start" value="P"></ion-radio>
+          <ion-label>Poesia</ion-label>
+        </ion-item>
+        <ion-item lines="none" class="ion-no-padding">
+          <ion-radio slot="start" value="R"></ion-radio>
+          <ion-label>Romance</ion-label>
+        </ion-item>
+        <ion-item lines="none" class="ion-no-padding">
+          <ion-radio slot="start" value="B"></ion-radio>
+          <ion-label>Biografia</ion-label>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+
+    <!--DESCRIÇÃO-->
+    <ion-item>
+      <ion-label position="floating">Descrição: </ion-label>
+      <ion-input formControlName="descricao" type="text"> </ion-input>
+      <ion-text
+        color="danger"
+        *ngIf="nome?.invalid && (nome?.dirty || nome?.touched)"
+      >
+        <small *ngIf="nome?.errors?.['required']">
+         A descrição do livro é obrigatória
+        </small>
+        <small *ngIf="nome?.errors?.['minlength']">
+          O campo nome deve conter no mínimo
+          {{ nome?.errors?.['minlength'].requiredLength }} caracteres
+        </small>
+        <small *ngIf="nome?.errors?.['maxlength']">
+          O campo nome deve conter no máximo
+          {{ nome?.errors?.['maxlength'].requiredLength }} caracteres
+        </small>
+      </ion-text>
+    </ion-item>
+
+    <!--VALOR R$-->
+    <ion-item>
+      <ion-label position="floating">Valor R$: </ion-label>
+      <ion-input formControlName="valor" type="text"> </ion-input>
+      <ion-text
+        color="danger"
+        *ngIf="nome?.invalid && (nome?.dirty || nome?.touched)"
+      >
+        <small *ngIf="nome?.errors?.['required']">
+         O valor do livro é obrigatório
+        </small>
+        <small *ngIf="nome?.errors?.['minlength']">
+          O campo nome deve conter no mínimo
+          {{ nome?.errors?.['minlength'].requiredLength }} caracteres
+        </small>
+        <small *ngIf="nome?.errors?.['maxlength']">
+          O campo nome deve conter no máximo
+          {{ nome?.errors?.['maxlength'].requiredLength }} caracteres
+        </small>
+      </ion-text>
+    </ion-item>
+
+    <!--QUANTIDADE DE PÁGIAS-->
+    <ion-item>
+      <ion-label position="floating">Quantidade de Páginas: </ion-label>
+      <ion-input formControlName="qtdPaginas" type="text"> </ion-input>
+      <ion-text
+        color="danger"
+        *ngIf="nome?.invalid && (nome?.dirty || nome?.touched)"
+      >
+        <small *ngIf="nome?.errors?.['required']">
+         A quantidade de páginas é obrigatória
+        </small>
+        <small *ngIf="nome?.errors?.['minlength']">
+          O campo nome deve conter no mínimo
+          {{ nome?.errors?.['minlength'].requiredLength }} caracteres
+        </small>
+        <small *ngIf="nome?.errors?.['maxlength']">
+          O campo nome deve conter no máximo
+          {{ nome?.errors?.['maxlength'].requiredLength }} caracteres
+        </small>
+      </ion-text>
+    </ion-item>
+
+    <!--AVALIAÇÃO-->
+    <ion-list>
+      <ion-list-header>
+        <ion-label>Avaliação: </ion-label>
+      </ion-list-header>
+      <ion-radio-group name="avaliacao" formControlName="avaliacao">
+        <ion-item>
+          <ion-radio slot="start" value="R"></ion-radio>
+          <ion-label>Recomendo</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-radio slot="start" value="N"></ion-radio>
+          <ion-label>Não Recomendo</ion-label>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+     
+    <!-- BOTÃO DE SALVAR -->
+    <ion-fab vertical="bottom" horizontal="end">
+      <ion-fab-button [routerLink]="['livros', 'cadastro']" color="success">
+       <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+     <!--IMAGEM-->
+    <ion-card>
+      <img
+        alt="Silhouette of mountains"
+        src="https://vidasimples.co/wp-content/uploads/2023/07/livros-inspiradores-1024x868.webp"
+        style="width: 30%; height: auto;"
+      />
+      <ion-card-header>
+        <ion-card-title>Um leitor vive mil vidas antes de morrer. O homem que nunca lê vive apenas uma.</ion-card-title>
+        <ion-card-subtitle>George R. R. Martin</ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+
+     <!--CONCORDA COM OS TERMOS-->
+    <br>
+    <ion-checkbox>Eu concordo com os Termo e Condições</ion-checkbox>
+    <br>
+  </form>
+</ion-content>

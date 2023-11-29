@@ -1,9 +1,3 @@
-# Projeto_MeetBook
-Projeto final da matéria de Programação para Plataformas Móveis
-
-Trabalho Final - Aplicativo Ionic
-Dupla: Sabrina Comin Nart e Eduarda Mello da Silva https://github.com/eduardamellosilva
-
 # ionic-livro-app
 
 Projeto de exemplo da disciplina de Programação para Plataformas Móveis
@@ -18,4 +12,9 @@ npm install
 Execução do backend que vai servir os dados para o aplicativo 
 ```
 npm run server
+```
+
+Execução do aplicativo no navegador
+```
+npm start 
 ```

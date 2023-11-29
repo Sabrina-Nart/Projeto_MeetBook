@@ -1,0 +1,193 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Personalizar - Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="usuariosForm">
+
+     <!--NOME-->
+     <ion-item>
+      <ion-label position="floating">Nome: </ion-label>
+      <ion-input formControlName="nome" type="text"> </ion-input>
+      <ion-text
+        color="danger"
+        *ngIf="nome?.invalid && (nome?.dirty || nome?.touched)"
+      >
+        <small *ngIf="nome?.errors?.['required']">
+          O campo nome é obrigatório
+        </small>
+        <small *ngIf="nome?.errors?.['minlength']">
+          O campo nome deve conter no mínimo
+          {{ nome?.errors?.['minlength'].requiredLength }} caracteres
+        </small>
+        <small *ngIf="nome?.errors?.['maxlength']">
+          O campo nome deve conter no máximo
+          {{ nome?.errors?.['maxlength'].requiredLength }} caracteres
+        </small>
+      </ion-text>
+    </ion-item>
+
+    <!---EMAIL-->
+    <ion-item>
+      <ion-label position="floating">E-mail: </ion-label>
+      <ion-input formControlName="email" type="text"></ion-input>
+    
+      <ion-text color="danger" *ngIf="usuariosForm.get('email')?.invalid && (usuariosForm.get	('email')?.dirty || usuariosForm.get('email')?.touched)">
+    
+        <small *ngIf="usuariosForm.get('email')?.errors?.['required']">
+          O campo email é obrigatório
+        </small>
+    
+        <small *ngIf="usuariosForm.get('email')?.errors?.['minlength']">
+          O campo e-mail deve conter no mínimo
+          {{ usuariosForm.get('email')?.errors?.['minlength'].requiredLength }} caracteres
+        </small>
+    
+        <small *ngIf="usuariosForm.get('email')?.errors?.['maxlength']">
+          O campo email deve conter no máximo
+          {{ usuariosForm.get('email')?.errors?.['maxlength'].requiredLength }} caracteres
+        </small>
+      </ion-text>
+    </ion-item>
+
+    <!--DATA NASCIMENTO-->
+    <ion-item>
+      <ion-label position="floating">Data de nascimento: </ion-label>
+      <br>
+      <ion-datetime-button datetime="datetime"></ion-datetime-button>
+      <ion-modal [keepContentsMounted]="true">
+        <ng-template>
+          <ion-datetime
+            id="datetime"
+            formControlName="dataNascimento"
+            display-format="DD de MMMM de YYYY"
+            min="1930-01-01"
+            presentation="date"
+            showDefaultButtons="true"
+            doneText="Selecionar"
+            cancelText="Cancelar"
+          ></ion-datetime>
+        </ng-template>
+      </ion-modal>
+    </ion-item>
+
+    <!-- SEXO -->
+<ion-list>
+  <ion-list-header>
+    <ion-label>Sexo</ion-label>
+  </ion-list-header>
+  <ion-radio-group name="genero" formControlName="genero">
+    <ion-item>
+      <ion-label>Feminino</ion-label>
+      <ion-radio slot="start" value="F"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Masculino</ion-label>
+      <ion-radio slot="start" value="M"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Transgênero</ion-label>
+      <ion-radio slot="start" value="T"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Gênero neutro</ion-label>
+      <ion-radio slot="start" value="N"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Outro</ion-label>
+      <ion-radio slot="start" value="O"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+</ion-list>
+
+        
+    <!--QUANTIDADE DE LIVROS LIDOS-->
+    <ion-item> 
+      <ion-label position="floating">Quantidade Estipulada para Leitura:</ion-label>
+      <ion-input formControlName="qtdLeituras" type="text"> </ion-input>
+      <ion-text
+        color="danger"
+        *ngIf="nome?.invalid && (nome?.dirty || nome?.touched)"
+      >
+        <small *ngIf="nome?.errors?.['required']">
+          O campo livros lidos é obrigatório
+        </small>
+        <small *ngIf="nome?.errors?.['minlength']">
+          O campo livros lidos deve conter no mínimo
+          {{ nome?.errors?.['minlength'].requiredLength }} caracteres
+        </small>
+        <small *ngIf="nome?.errors?.['maxlength']">
+          O campo livros lidos deve conter no máximo
+          {{ nome?.errors?.['maxlength'].requiredLength }} caracteres
+        </small>
+      </ion-text>
+    </ion-item>
+
+    <!--PAIS-->
+    <ion-list>
+      <ion-item>
+          <ion-select aria-label="pais" value="pais" placeholder="Brasil">
+              <ion-select-option  value="BR">Brasil</ion-select-option>
+              <ion-select-option  value="AR">Argentina</ion-select-option>
+              <ion-select-option  value="ES">Estados Unidos</ion-select-option>
+              <ion-select-option  value="PA">Paraguai</ion-select-option>
+              <ion-select-option  value="UR">Uruguai</ion-select-option>
+              <ion-select-option  value="IT">Itália</ion-select-option>
+              <ion-select-option  value="PO">Portugal</ion-select-option>
+              <ion-select-option  value="EL">Espanha</ion-select-option>
+              <ion-select-option  value="AL">Alemanha</ion-select-option>
+              <ion-select-option  value="RU">Rússia</ion-select-option>
+              <ion-select-option  value="CO">Coreia do Sul</ion-select-option>
+              <ion-select-option  value="JA">Japão</ion-select-option>       
+              <ion-select-option  value="CH">China</ion-select-option>
+              <ion-select-option  value="AU">Austrália</ion-select-option>
+              <ion-select-option  value="ME">México</ion-select-option>
+              <ion-select-option  value="AF">África do Sul</ion-select-option>
+          </ion-select>
+      </ion-item>
+  </ion-list> 
+
+  <!--SATISFAÇÃO-->
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Você indicaria o aplicativo para um Amigo? </ion-label>
+    </ion-list-header>
+    <ion-radio-group name="satisfacao" formControlName="satisfacao">
+      <ion-item>
+        <ion-radio slot="start" value="I"></ion-radio>
+        <ion-label>Indicaria</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-radio slot="start" value="N"></ion-radio>
+        <ion-label>Precisa Melhorar</ion-label>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+
+  <ion-checkbox>Eu concordo com os Termo e Condições</ion-checkbox>
+
+  <!--BOTÃO -->
+  <ion-fab vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="salvar()" [disabled]="!usuariosForm.valid" color="success">
+      <ion-icon name="checkmark-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+     <!--IMAGEM-->
+    <ion-card>
+      <img
+        alt="Silhouette of mountains"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr1VjC-DkV7GzVJaNUo2Psc2GyUt4a-nqJUw&usqp=CAU"
+        style="width: 30%; height: auto;"
+      />  <ion-card-header>
+        <ion-card-title>"Se eu não puder ser melhor do que eles, então serei pior."</ion-card-title>
+        <ion-card-subtitle>O Principe Cruel </ion-card-subtitle>
+      </ion-card-header>
+    
+    </ion-card>
+  </form>
+</ion-content>

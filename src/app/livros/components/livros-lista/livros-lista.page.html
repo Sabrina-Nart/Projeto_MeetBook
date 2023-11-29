@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Livros</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-searchbar (ionInput)="filtrarLivros($event)" placeholder="Pesquisar por nome"></ion-searchbar>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let livro of livrosFiltrados">
+      <ion-label>{{ livro.nome }}</ion-label>
+      <ion-buttons>
+        <ion-button color="primary" [routerLink]="['edicao', livro.id]">
+          <ion-icon name="create" slot="icon-only"></ion-icon>
+        </ion-button>
+        <ion-button color="primary" (click)="confirmarExclusao(livro)">
+          <ion-icon name="trash" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+
+  <!--BOTÃO CADASTRAR-->
+  <ion-fab vertical="bottom" horizontal="end">
+    <ion-fab-button [routerLink]="['cadastro']" color="success">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
+  <!--BOTÃO HOME-->
+  <ion-fab vertical="bottom" horizontal="start">
+    <ion-fab-button size="small" [routerLink]="['/']">
+      <ion-icon name="home"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>  
+    <!--IMAGEM-->
+    <ion-card>
+      <img
+        alt="Silhouette of mountains"
+        src="https://i0.wp.com/estacaoimaginaria.com/wp-content/uploads/2021/04/RESENHA-ACORTAR-01-REDUZIDA.jpg?fit=2000%2C1333&ssl=1"
+        style="width: 80%; height: auto;"
+      />
+      
+      <ion-card-header>
+        <ion-card-title>“Uma vida por uma vida, mas e se a vida oferecida como pagamento significasse perder mais três?”</ion-card-title>
+        <ion-card-subtitle>Corte de Espinhos e Rosas</ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+
+</ion-content>

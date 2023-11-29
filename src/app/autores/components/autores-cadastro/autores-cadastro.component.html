@@ -1,0 +1,158 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Cadastro de Autores - Favoritos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="autoresForm">
+
+     <!--NOME-->
+    <ion-item>
+      <ion-label position="floating">Nome: </ion-label>
+      <ion-input formControlName="nome" type="text"> </ion-input>
+      <ion-text
+        color="danger"
+        *ngIf="nome?.invalid && (nome?.dirty || nome?.touched)"
+      >
+        <small *ngIf="nome?.errors?.['required']">
+          O campo nome é obrigatório
+        </small>
+        <small *ngIf="nome?.errors?.['minlength']">
+          O campo nome deve conter no mínimo
+          {{ nome?.errors?.['minlength'].requiredLength }} caracteres
+        </small>
+        <small *ngIf="nome?.errors?.['maxlength']">
+          O campo nome deve conter no máximo
+          {{ nome?.errors?.['maxlength'].requiredLength }} caracteres
+        </small>
+      </ion-text>
+    </ion-item>
+    <ion-item>
+
+      <!--DATA NASCIMENTO-->
+      <ion-label position="floating">Data de nascimento: </ion-label>
+      <br>
+      <ion-datetime-button datetime="datetime"></ion-datetime-button>
+      <ion-modal [keepContentsMounted]="true">
+        <ng-template>
+          <ion-datetime
+            id="datetime"
+            formControlName="dataNascimento"
+            display-format="DD de MMMM de YYYY"
+            min="1930-01-01"
+            presentation="date"
+            showDefaultButtons="true"
+            doneText="Selecionar"
+            cancelText="Cancelar"
+          ></ion-datetime>
+        </ng-template>
+      </ion-modal>
+    </ion-item>
+
+    <!--SEXO-->
+    <ion-list>
+      <ion-list-header>
+        <ion-label>Sexo</ion-label>
+      </ion-list-header>
+      <ion-radio-group name="sexo" formControlName="sexo">
+        <ion-item>
+          <ion-radio slot="start" value="F">Feminino</ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-radio slot="start" value="M">Masculino</ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+    
+    <!--GENERO LITERÁRIO-->
+    <ion-item>
+      <ion-label position="floating">Genero Literário: </ion-label>
+      <ion-input formControlName="generoLiterario" type="text"> </ion-input>
+      <ion-text
+        color="danger"
+        *ngIf="nome?.invalid && (nome?.dirty || nome?.touched)"
+      >
+        <small *ngIf="nome?.errors?.['required']">
+          O campo genero literário é obrigatório
+        </small>
+        <small *ngIf="nome?.errors?.['minlength']">
+          O campo nome deve conter no mínimo
+          {{ nome?.errors?.['minlength'].requiredLength }} caracteres
+        </small>
+        <small *ngIf="nome?.errors?.['maxlength']">
+          O campo nome deve conter no máximo
+          {{ nome?.errors?.['maxlength'].requiredLength }} caracteres
+        </small>
+      </ion-text>
+    </ion-item>
+
+    <!--QUANTIDADE DE LIVROS LIDOS-->
+    <ion-item> 
+      <ion-label position="floating">Quantidade de Livros Lidos: </ion-label>
+      <ion-input formControlName="qtdLivrosLidos" type="text"> </ion-input>
+      <ion-text
+        color="danger"
+        *ngIf="nome?.invalid && (nome?.dirty || nome?.touched)"
+      >
+        <small *ngIf="nome?.errors?.['required']">
+          O campo quantidade de livros é obrigatório
+        </small>
+        <small *ngIf="nome?.errors?.['minlength']">
+          O campo nome deve conter no mínimo
+          {{ nome?.errors?.['minlength'].requiredLength }} caracteres
+        </small>
+        <small *ngIf="nome?.errors?.['maxlength']">
+          O campo nome deve conter no máximo
+          {{ nome?.errors?.['maxlength'].requiredLength }} caracteres
+        </small>
+      </ion-text>
+    </ion-item>
+
+    <!--INDICAÇÃO-->
+    <ion-list>
+      <ion-list-header>
+        <ion-label>Indicação do Autor: </ion-label>
+      </ion-list-header>
+      <ion-radio-group name="indicacao" formControlName="indicacao">
+        <ion-item>
+          <ion-radio slot="start" value="I"></ion-radio>
+          <ion-label>Indico</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-radio slot="start" value="N"></ion-radio>
+          <ion-label>Não Indico</ion-label>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+
+    <!--BOTÃO CADASTAR-->
+    <ion-fab vertical="bottom" horizontal="end">
+      <ion-fab-button (click)="salvar()" [disabled]="!autoresForm.valid" color="success">
+        <ion-icon name="checkmark-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    
+     <!--CONCORDA COM OS TERMOS-->
+     <br>
+     <ion-checkbox>Eu concordo com os Termo e Condições</ion-checkbox>
+     <br>
+
+     <!--IMAGEM-->
+    <ion-card>
+      <img
+        alt="Silhouette of mountains"
+        src="https://1.bp.blogspot.com/-190SBAQRNsA/YAt-Pd7hPqI/AAAAAAAABIA/mLSRFGn5x8I337XpzsAN4TxIqyKTTMBmQCLcBGAsYHQ/w1200-h630-p-k-no-nu/opr%25C3%25ADncipecruel1.jpg"
+        style="width: 30%; height: auto;"
+      />
+      
+      <ion-card-header>
+        <ion-card-title>"Se eu não puder ser melhor do que eles, então serei pior."</ion-card-title>
+        <ion-card-subtitle>O Principe Cruel </ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+  </form>
+</ion-content>

@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let usuario of usuarios">
+      <ion-label>{{usuario.nome}}</ion-label>
+      <ion-buttons>
+        <ion-button color="primary" [routerLink]="['edicao', usuario.id]">
+          <ion-icon name="create" slot="icon-only"></ion-icon> 
+        </ion-button>
+        <ion-button color="primary" (click)="confirmarExclusao(usuario)">
+          <ion-icon name="trash"  slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+ 
+  <!--BOTÃO DE CADASTAR-->
+  <ion-fab vertical="bottom" horizontal="end">
+    <ion-fab-button [routerLink]="['cadastro']"color="success">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <!--BOTÃO HOME-->
+  <ion-fab vertical="bottom" horizontal="start">
+    <ion-fab-button size="small" [routerLink]="['/']">
+      <ion-icon name="home"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+   <!--IMAGEM-->
+   <ion-card>
+    <img
+      alt="Silhouette of mountains"
+      src="https://i.pinimg.com/564x/b5/0e/06/b50e06b5549c31b7ec7fc03915ac08c0.jpg"
+      style="width: 50; height: auto;"
+      />
+      <ion-card-header>
+        <ion-card-title>“A verdade é uma coisa bela e terrível, e portanto deve ser tratada com grande cautela.”</ion-card-title>
+        <ion-card-subtitle>Harry Potter</ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+  
+</ion-content>

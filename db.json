@@ -1,0 +1,89 @@
+{
+  "autores": [
+    {
+      "nome": "Miguel Oliveira",
+      "dataNascimento": "1972-07-05T20:30:00",
+      "sexo": "M",
+      "generoLiterario": "Científica",
+      "qtdLivrosLidos": "1",
+      "indicacao": "I",
+      "id": 2
+    },
+    {
+      "nome": "Clara Santos",
+      "dataNascimento": "1990-09-15T20:01:00",
+      "sexo": "F",
+      "generoLiterario": "Poesia",
+      "qtdLivrosLidos": "5",
+      "indicacao": "N",
+      "id": 3
+    },
+    {
+      "nome": "Rui Martins",
+      "dataNascimento": "1980-01-20T00:15:00",
+      "sexo": "M",
+      "generoLiterario": "Mistério",
+      "qtdLivrosLidos": "6",
+      "indicacao": "I",
+      "id": 4
+    },
+    {
+      "nome": "Sarah J. Maas",
+      "dataNascimento": "2023-11-27T01:12:39.239Z",
+      "sexo": "F",
+      "generoLiterario": "Fantasia",
+      "qtdLivrosLidos": "5",
+      "indicacao": "I",
+      "id": 5
+    }
+  ],
+  
+  "livros": [
+    {
+      "nome": "Corte de Espinhos e Rosas",
+      "autor": "Sarah J. MaasSarah J. Maas",
+      "dataNascimento": "2000-04-28T20:30:34.363-03:00",
+      "genero": "R",
+      "descricao": "Teste",
+      "valor": "80",
+      "qtdPaginas": "434 ",
+      "avaliacao": false,
+      "id": 2
+    },
+    {
+      "nome": "A Cinco Passos de Você",
+      "autor": "Cole Sprouse e Haley Lu Richardson",
+      "dataNascimento": "1991-02-27T20:01:00",
+      "genero": "R",
+      "descricao": "Stella Grant gosta de estar no controle. Ela parece ser uma adolescente típica, mas em sua rotina há listas de tarefas e inúmeros remédios que ela deve tomar para controlar a fibrose cística.",
+      "valor": "20,10",
+      "qtdPaginas": "288",
+      "avaliacao": false,
+      "id": 3
+    }
+  ],
+
+  "usuarios": [
+    {
+      "nome": "Ana Cláudia Decali Mello da Silva",
+      "email": "anaclaudia@teste.com.br",
+      "genero": "F",
+      "dataNascimento": "1972-07-05T20:30:00",
+      "generoLiterario": "Científica",
+      "pais": "BR",
+      "qtdLeituras": "10",
+      "satisfação": "I",
+      "id": 1
+    },
+    {
+      "nome": "Sabrina Comin Nart",
+      "email": "sabrina@teste.com.br",
+      "genero": "F",
+      "dataNascimento": "2023-11-29T00:37:46.130Z",
+      "pais": "BR",
+      "qtdLeituras": "10",
+      "satisfacao": "I",
+      "id": 2
+    }
+  ]
+}
